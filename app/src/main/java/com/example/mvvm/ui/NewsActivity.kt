@@ -9,6 +9,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.mvvm.R
 import com.example.mvvm.data.NewsRepository
 import com.example.mvvm.databinding.ActivityNewsBinding
+
 import com.example.mvvm.db.ArticleDatabase
 
 class NewsActivity : AppCompatActivity() {
@@ -19,15 +20,15 @@ class NewsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(binding.root)
 
         val articleDatabase = ArticleDatabase(applicationContext)
         val newsRepository = NewsRepository(articleDatabase)
         val viewModelProviderFactory = NewViewModelProviderFactory(newsRepository)
         viewModel = ViewModelProvider(
-            this,
-            viewModelProviderFactory
+            this, viewModelProviderFactory
         ).get(NewsViewModel::class.java)
+
+        setContentView(binding.root)
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.newsNavHostFragment) as NavHostFragment

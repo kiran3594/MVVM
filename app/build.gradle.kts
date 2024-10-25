@@ -1,7 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    kotlin("kapt")
+    alias(libs.plugins.ksp)
+//    kotlin("kapt")
 }
 
 android {
@@ -60,7 +61,7 @@ dependencies {
     // Room
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
-    kapt(libs.androidx.room.compiler)
+    ksp(libs.androidx.room.compiler)
 
     // Coroutines
     implementation(libs.kotlinx.coroutines.core)
@@ -77,5 +78,5 @@ dependencies {
 
     // Glide
     implementation(libs.glide)
-    kapt(libs.glide.compiler)
+    ksp(libs.glide.compiler)
 }

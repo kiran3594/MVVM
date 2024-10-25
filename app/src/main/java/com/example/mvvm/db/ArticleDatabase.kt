@@ -1,13 +1,13 @@
 package com.example.mvvm.db
 
 import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
+import androidx.room.*
 import com.example.mvvm.models.Article
 
-@Database(entities = [Article::class], version = 1)
+@Database(
+    entities = [Article::class],
+    version = 1
+)
 @TypeConverters(Convertors::class)
 abstract class ArticleDatabase : RoomDatabase() {
 
