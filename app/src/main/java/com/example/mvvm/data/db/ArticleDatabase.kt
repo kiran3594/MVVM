@@ -6,7 +6,7 @@ import com.example.mvvm.data.models.Article
 
 @Database(
     entities = [Article::class],
-    version = 1
+    version = 2
 )
 @TypeConverters(Convertors::class)
 abstract class ArticleDatabase : RoomDatabase() {

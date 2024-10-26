@@ -46,7 +46,7 @@ class ArticleFragment : Fragment() {
         binding.webView.apply {
             webViewClient = WebViewClient()
             Log.d(TAG,"kiran :${article.url}")
-            loadUrl(article.url)
+            loadUrl(article.url!!)
         }
     }
 
