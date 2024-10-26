@@ -11,6 +11,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.mvvm.databinding.FragmentArticleBinding
 import com.example.mvvm.ui.activity.NewsActivity
 import com.example.mvvm.ui.viewmodels.NewsViewModel
+import com.google.android.material.snackbar.Snackbar
 
 class ArticleFragment : Fragment() {
 
@@ -36,6 +37,12 @@ class ArticleFragment : Fragment() {
         // Initialize ViewModel scoped to the Activity (shared between fragments and activity)
         viewModel = (activity as NewsActivity).viewModel
         val article = args.article
+
+        binding.fab.setOnClickListener {
+            viewModel.saveArticleIntoDatabase(article)
+            Snackbar.make(view,"Article Saved Successfully",Snackbar.LENGTH_LONG).show()
+        }
+
         binding.webView.apply {
             webViewClient = WebViewClient()
             Log.d(TAG,"kiran :${article.url}")

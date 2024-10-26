@@ -57,6 +57,7 @@ class SearchNewsFragment : Fragment() {
                 )
             }
 
+
             var job: Job? = null
 
             binding.etSearch.addTextChangedListener { editable ->
