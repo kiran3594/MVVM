@@ -1,8 +1,8 @@
-package com.example.mvvm.ui
+package com.example.mvvm.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.mvvm.data.NewsRepository
+import com.example.mvvm.data.repository.NewsRepository
 
 class NewViewModelProviderFactory(val newsRepository: NewsRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

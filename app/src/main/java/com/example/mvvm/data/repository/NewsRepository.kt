@@ -1,7 +1,7 @@
-package com.example.mvvm.data
+package com.example.mvvm.data.repository
 
-import com.example.mvvm.api.RetrofitInstance
-import com.example.mvvm.db.ArticleDatabase
+import com.example.mvvm.data.api.RetrofitInstance
+import com.example.mvvm.data.db.ArticleDatabase
 
 class NewsRepository(val db: ArticleDatabase) {
 
@@ -9,5 +9,5 @@ class NewsRepository(val db: ArticleDatabase) {
         RetrofitInstance.api.getBreakingResult(countryCode = countryCode, pageNumber = pageNumber)
 
     suspend fun getSearchNews(searchQuery: String, pageNumber: Int) =
-        RetrofitInstance.api.searchNews(searchQuery, pageNumber)
+        RetrofitInstance.api.searchNews(search = searchQuery, pageNumber = pageNumber)
 }

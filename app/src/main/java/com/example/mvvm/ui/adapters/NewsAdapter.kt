@@ -1,4 +1,4 @@
-package com.example.mvvm.adapters
+package com.example.mvvm.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mvvm.databinding.ItemArticlePreviewBinding
-import com.example.mvvm.models.Article
+import com.example.mvvm.data.models.Article
 
 class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
 
@@ -45,7 +45,7 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
             tvTitle.text = article.title
             tvDescription.text = article.description
             tvPublishedAt.text = article.publishedAt
-            setOnClickListener {
+            itemView.setOnClickListener {
                 onItemClickListener?.let { it(article) }
             }
         }

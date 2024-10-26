@@ -6,20 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mvvm.adapters.NewsAdapter
+import com.example.mvvm.R
 import com.example.mvvm.databinding.FragmentBreakingNewsBinding
-import com.example.mvvm.ui.NewsActivity
-import com.example.mvvm.ui.NewsViewModel
+import com.example.mvvm.ui.activity.NewsActivity
+import com.example.mvvm.ui.adapters.NewsAdapter
+import com.example.mvvm.ui.viewmodels.NewsViewModel
 import com.example.mvvm.utils.Resource
 
 class BreakingNewsFragment : Fragment() {
 
-    private lateinit var binding: FragmentBreakingNewsBinding
+    lateinit var binding: FragmentBreakingNewsBinding
 
-    private lateinit var viewModel: NewsViewModel
-    private lateinit var newsAdapter: NewsAdapter
+    lateinit var viewModel: NewsViewModel
+    lateinit var newsAdapter: NewsAdapter
     private val TAG = BreakingNewsFragment::class.java.name
 
     override fun onCreateView(
@@ -42,7 +43,8 @@ class BreakingNewsFragment : Fragment() {
 
             // Set up RecyclerView
             setUpRecyclerView()
-            viewModel.breakingNews.observe(viewLifecycleOwner, Observer { response ->
+
+            viewModel.breakingNews.observe(viewLifecycleOwner) { response ->
                 when (response) {
                     is Resource.Success -> {
                         hideProgressBar()
@@ -60,7 +62,17 @@ class BreakingNewsFragment : Fragment() {
 
                     is Resource.Loading -> showProgressBar()
                 }
-            })
+            }
+
+            newsAdapter.setOnClickListener {
+                val bundle = Bundle().apply {
+                    putSerializable("article", it)
+                }
+                findNavController().navigate(
+                    R.id.action_breakingNewsFragment_to_articleFragment,
+                    bundle
+                )
+            }
         } catch (e: Exception) {
             Log.d(tag, "Exception $e")
         }

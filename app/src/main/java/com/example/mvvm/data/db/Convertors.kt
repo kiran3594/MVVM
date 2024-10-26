@@ -1,7 +1,7 @@
-package com.example.mvvm.db
+package com.example.mvvm.data.db
 
 import androidx.room.TypeConverter
-import com.example.mvvm.models.Source
+import com.example.mvvm.data.models.Source
 
 class Convertors {
     @TypeConverter
@@ -9,7 +9,7 @@ class Convertors {
         return source.name
     }
     @TypeConverter
-    fun toSource(name:String):Source{
+    fun toSource(name:String): Source {
         return Source(name,name)
     }
 }

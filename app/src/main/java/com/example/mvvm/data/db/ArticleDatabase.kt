@@ -1,8 +1,8 @@
-package com.example.mvvm.db
+package com.example.mvvm.data.db
 
 import android.content.Context
 import androidx.room.*
-import com.example.mvvm.models.Article
+import com.example.mvvm.data.models.Article
 
 @Database(
     entities = [Article::class],

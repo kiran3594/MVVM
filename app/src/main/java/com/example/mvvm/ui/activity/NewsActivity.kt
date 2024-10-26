@@ -1,4 +1,4 @@
-package com.example.mvvm.ui
+package com.example.mvvm.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -7,10 +7,12 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.mvvm.R
-import com.example.mvvm.data.NewsRepository
+import com.example.mvvm.data.repository.NewsRepository
 import com.example.mvvm.databinding.ActivityNewsBinding
 
-import com.example.mvvm.db.ArticleDatabase
+import com.example.mvvm.data.db.ArticleDatabase
+import com.example.mvvm.ui.viewmodels.NewViewModelProviderFactory
+import com.example.mvvm.ui.viewmodels.NewsViewModel
 
 class NewsActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package com.example.mvvm.api
+package com.example.mvvm.data.api
 
 import com.example.mvvm.utils.Constants.BASE_URL
 import okhttp3.OkHttpClient
@@ -15,7 +15,7 @@ object RetrofitInstance {
         Retrofit.Builder().baseUrl(BASE_URL).client(client)
             .addConverterFactory(GsonConverterFactory.create()).build()
     }
-    val api:NewsAPI by lazy {
+    val api: NewsAPI by lazy {
         retrofit.create(NewsAPI::class.java)
     }
 }
