@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AbsListView
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -95,6 +96,8 @@ class SearchNewsFragment : Fragment() {
 
                     is Resource.Error -> {
                         Log.d(TAG, "Error : ${result.message}")
+                        Toast.makeText(activity, "An error occured:$result", Toast.LENGTH_SHORT)
+                            .show()
                         hideProgressBar()
                     }
 
@@ -116,6 +119,7 @@ class SearchNewsFragment : Fragment() {
     private fun hideProgressBar() {
         binding.paginationProgressBar.visibility = View.INVISIBLE
     }
+
     var isLoading = false
     var isLastPage = false
     var isScrolling = false
