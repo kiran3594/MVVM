@@ -52,13 +52,20 @@ class SearchNewsFragment : Fragment() {
             setUpRecyclerView()
 
             searchAdapter.setOnClickListener {
-                val bundle = Bundle().apply {
-                    putSerializable("article", it)
+
+                it.let { article->
+                    try {
+                        val bundle = Bundle().apply {
+                            putSerializable("article", article)
+                        }
+                        findNavController().navigate(
+                            R.id.action_searchNewsFragment_to_articleFragment,
+                            bundle
+                        )
+                    }catch (e: Exception) {
+                        Log.d(tag,"Kiran - > Exception :${e.message}")
+                    }
                 }
-                findNavController().navigate(
-                    R.id.action_searchNewsFragment_to_articleFragment,
-                    bundle
-                )
             }
 
 

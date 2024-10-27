@@ -75,13 +75,20 @@ class BreakingNewsFragment : Fragment() {
             }
 
             newsAdapter.setOnClickListener {
-                val bundle = Bundle().apply {
-                    putSerializable("article", it)
+                it.let { article ->
+                    try {
+                        val bundle = Bundle().apply {
+                            putSerializable("article", article)
+                        }
+                        findNavController().navigate(
+                            R.id.action_breakingNewsFragment_to_articleFragment,
+                            bundle
+                        )
+                    }catch (e: Exception)
+                    {
+                        Log.d(tag,"Kiran - > Exception :${e.message}")
+                    }
                 }
-                findNavController().navigate(
-                    R.id.action_breakingNewsFragment_to_articleFragment,
-                    bundle
-                )
             }
         } catch (e: Exception) {
             Log.d(tag, "Exception $e")
