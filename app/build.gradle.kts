@@ -18,6 +18,7 @@ android {
         versionName = "1.0"
 
         buildConfigField("String", "API_KEY", "${project.properties["NEWS_API_KEY"]}")
+        buildConfigField("String", "BASE_URL", "${project.properties["BASE_API_URL"]}")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
