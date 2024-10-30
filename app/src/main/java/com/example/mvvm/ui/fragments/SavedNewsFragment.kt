@@ -15,7 +15,9 @@ import com.example.mvvm.ui.activity.NewsActivity
 import com.example.mvvm.ui.adapters.NewsAdapter
 import com.example.mvvm.ui.viewmodels.NewsViewModel
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SavedNewsFragment : Fragment() {
 
     lateinit var viewModel: NewsViewModel

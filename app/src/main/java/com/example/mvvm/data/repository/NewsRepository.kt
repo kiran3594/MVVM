@@ -3,8 +3,9 @@ package com.example.mvvm.data.repository
 import com.example.mvvm.data.api.RetrofitInstance
 import com.example.mvvm.data.db.ArticleDatabase
 import com.example.mvvm.data.models.Article
+import javax.inject.Inject
 
-class NewsRepository(val db: ArticleDatabase) {
+class NewsRepository @Inject constructor(val db: ArticleDatabase) {
 
     suspend fun getBreakingNews(countryCode: String, pageNumber: Int) =
         RetrofitInstance.api.getBreakingResult(countryCode = countryCode, pageNumber = pageNumber)

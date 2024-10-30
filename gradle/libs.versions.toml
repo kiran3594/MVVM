@@ -19,6 +19,7 @@ navigation = "2.8.3"
 glide = "4.13.2"
 kspVersion = "1.9.0-1.0.12"
 safeargs = "2.8.3"
+hiltAndroid = "2.50"
 
 
 [libraries]
@@ -33,6 +34,7 @@ androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview"
 androidx-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 # Lifecycle
 androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewModelKtx" }
+
 
 # Room
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
@@ -56,8 +58,13 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
 glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "glide" }
 
+#Depedency Injection HILT
+hilt = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltAndroid" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "kspVersion" }
 safeargs = { id = "androidx.navigation.safeargs.kotlin", version.ref = "safeargs" }
+hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroid" }

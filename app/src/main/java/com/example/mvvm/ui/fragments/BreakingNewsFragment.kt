@@ -18,7 +18,9 @@ import com.example.mvvm.ui.adapters.NewsAdapter
 import com.example.mvvm.ui.viewmodels.NewsViewModel
 import com.example.mvvm.utils.Constants.QUERY_PAGE_SIZE
 import com.example.mvvm.utils.Resource
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class BreakingNewsFragment : Fragment() {
 
     lateinit var binding: FragmentBreakingNewsBinding

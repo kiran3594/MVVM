@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.ksp)
     alias(libs.plugins.safeargs)
+    alias(libs.plugins.hilt.android)
 }
 
 android {
@@ -83,4 +84,9 @@ dependencies {
     // Glide
     implementation(libs.glide)
     ksp(libs.glide.compiler)
+
+
+    //Hilt
+    implementation(libs.hilt)
+    ksp(libs.hilt.compiler)
 }

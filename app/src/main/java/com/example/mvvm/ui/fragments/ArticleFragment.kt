@@ -12,7 +12,9 @@ import com.example.mvvm.databinding.FragmentArticleBinding
 import com.example.mvvm.ui.activity.NewsActivity
 import com.example.mvvm.ui.viewmodels.NewsViewModel
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ArticleFragment : Fragment() {
 
     lateinit var viewModel: NewsViewModel

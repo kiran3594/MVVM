@@ -20,11 +20,13 @@ import com.example.mvvm.ui.viewmodels.NewsViewModel
 import com.example.mvvm.utils.Constants.QUERY_PAGE_SIZE
 import com.example.mvvm.utils.Constants.SEARCH_NEWS_DELAY_TIME
 import com.example.mvvm.utils.Resource
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class SearchNewsFragment : Fragment() {
 
     lateinit var viewModel: NewsViewModel

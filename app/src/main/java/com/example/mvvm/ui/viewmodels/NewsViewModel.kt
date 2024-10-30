@@ -18,11 +18,14 @@ import com.example.mvvm.data.models.Article
 import com.example.mvvm.data.models.NewsResponse
 import com.example.mvvm.data.repository.NewsRepository
 import com.example.mvvm.utils.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import okio.IOException
 import retrofit2.Response
+import javax.inject.Inject
 
-class NewsViewModel(val app: Application, val newsRepository: NewsRepository) :
+@HiltViewModel
+class NewsViewModel @Inject constructor(val app: Application, val newsRepository: NewsRepository) :
     AndroidViewModel(app) {
 
     //List Getting BreakNews
